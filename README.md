@@ -1,4 +1,4 @@
-<h1>🧹 Clean Arch Medium Product</h1>
+<h1>🧹 Clean Architecture Project</h1>
 <h3>🧑🏼‍💻 Established by</h3>
 <ul>
     <li><strong>Ruangyot Nanchiang</strong></li>
@@ -39,7 +39,7 @@ docker run --name clean-arch-db -e POSTGRES_PASSWORD=123456 -p 1122:5432 -d post
 <strong>Config the postgres</strong>
 
 ```
-docker exec -it manga-store-db-<your-stage> bash
+docker exec -it clean-arch-db bash
 ```
 ```
 psql -U postgres
