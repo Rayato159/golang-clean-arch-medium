@@ -1,6 +1,7 @@
 package repositories
 
 import (
+	"errors"
 	"fmt"
 
 	"github.com/jmoiron/sqlx"
@@ -46,4 +47,22 @@ func (r *usersRepo) Register(req *entities.UsersRegisterReq) (*entities.UsersReg
 	defer r.Db.Close()
 
 	return user, nil
+}
+
+func (r *usersRepo) FindOneUser(username string) (*entities.UsersPassport, error) {
+	query := `
+	SELECT
+	"id",
+	"username",
+	"password"
+	FROM "users"
+	WHERE "username" = $1;
+	`
+
+	res := new(entities.UsersPassport)
+	if err := r.Db.Get(res, query, username); err != nil {
+		fmt.Println(err.Error())
+		return nil, errors.New("error, user not found")
+	}
+	return res, nil
 }

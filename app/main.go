@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// Load dotenv config
-	if err := godotenv.Load("../.env"); err != nil {
+	if err := godotenv.Load(".env"); err != nil {
 		panic(err.Error())
 	}
 	cfg := new(configs.Configs)

@@ -5,6 +5,7 @@ type UsersUsecase interface {
 }
 
 type UsersRepository interface {
+	FindOneUser(username string) (*UsersPassport, error)
 	Register(req *UsersRegisterReq) (*UsersRegisterRes, error)
 }
 
